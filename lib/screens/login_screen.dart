@@ -33,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 constraints: BoxConstraints(
                     maxHeight: MediaQuery.of(context).size.height,
                     maxWidth: MediaQuery.of(context).size.width),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: NetworkImage(
                         "https://images.unsplash.com/photo-1571008887538-b36bb32f4571?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470"),
@@ -49,14 +49,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
                               vertical: 36.0, horizontal: 24.0),
-                          child: Column(children: []),
+                          child: Column(children: const []),
                         ),
                       ),
                       Expanded(
                           flex: 3,
                           child: Container(
                             width: double.infinity,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(40),
@@ -68,18 +68,18 @@ class _LoginScreenState extends State<LoginScreen> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Text(
+                                  const Text(
                                     "Bienvenido de Vuelta",
                                     style: TextStyle(
                                       color: Colors.black,
-                                      fontSize: 46.0,
+                                      fontSize: 30.0,
                                       fontWeight: FontWeight.w800,
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 6.0,
                                   ),
-                                  Text(
+                                  const Text(
                                     "Ingresa tus datos",
                                     style: TextStyle(
                                       color: Colors.black,
@@ -87,8 +87,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                       fontWeight: FontWeight.w300,
                                     ),
                                   ),
-                                  SizedBox(
-                                    height: 80.0,
+                                  const SizedBox(
+                                    height: 50.0,
                                   ),
                                   TextField(
                                     controller: emailController,
