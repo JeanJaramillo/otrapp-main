@@ -36,9 +36,10 @@ class HomeScreen extends StatelessWidget {
           children: [
             // Child Elements for Each Drawer Item
             MLMenuItem(
-                leading: const Icon(Icons.person),
+                leading: const Icon(Icons.person, color: Colors.blue),
                 content: const Text(
                   "Mi Perfil",
+                  textAlign: TextAlign.start,
                 ),
                 onClick: () {
                   Navigator.of(context).pop();
@@ -46,7 +47,7 @@ class HomeScreen extends StatelessWidget {
                       builder: (BuildContext context) => const Profile()));
                 }),
             MLMenuItem(
-                leading: const Icon(Icons.settings),
+                leading: const Icon(Icons.settings, color: Colors.orange),
                 trailing: const Icon(Icons.arrow_right),
                 content: const Text("Configuraciòn"),
                 onClick: () {},
@@ -69,7 +70,7 @@ class HomeScreen extends StatelessWidget {
                       submenuContent: const Text("Eliminar tu Cuenta "))
                 ]),
             MLMenuItem(
-              leading: const Icon(Icons.emoji_events),
+              leading: const Icon(Icons.emoji_events, color: Colors.green),
               content: const Text("Eventos"),
               onClick: () {
                 Navigator.of(context).pop();
@@ -78,7 +79,7 @@ class HomeScreen extends StatelessWidget {
               },
             ),
             MLMenuItem(
-                leading: const Icon(Icons.chat),
+                leading: const Icon(Icons.chat, color: Colors.purple),
                 content: const Text(
                   "Chat",
                 ),
@@ -88,7 +89,7 @@ class HomeScreen extends StatelessWidget {
                       builder: (BuildContext context) => const Chat()));
                 }),
             MLMenuItem(
-                leading: const Icon(Icons.assessment_sharp),
+                leading: const Icon(Icons.assessment_sharp, color: Colors.pink),
                 content: const Text(
                   "Monitoreo de Salud",
                 ),
@@ -99,7 +100,7 @@ class HomeScreen extends StatelessWidget {
                           const ChartHomePage()));
                 }),
             MLMenuItem(
-                leading: const Icon(Icons.payment),
+                leading: const Icon(Icons.payment, color: Colors.cyan),
                 content: const Text(
                   "Cerrar Sesiòn",
                 ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:otrapp/screens/register_screen.dart';
+import 'package:otrapp/screens/login_screen.dart';
 
 class IntroScreem extends StatefulWidget {
   const IntroScreem({Key? key}) : super(key: key);
@@ -15,7 +15,7 @@ class _IntroScreemState extends State<IntroScreem> {
     Future.delayed(d, () {
       Navigator.pushAndRemoveUntil(context,
           MaterialPageRoute(builder: (context) {
-        return const RegisterScreen();
+        return const LoginScreen();
       }), (route) => false);
     });
     super.initState();
@@ -53,7 +53,7 @@ class _IntroScreemState extends State<IntroScreem> {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: CircularProgressIndicator(
-                color: Colors.black,
+                color: Color.fromRGBO(85, 163, 255, 100),
               ),
             ),
           )
