@@ -3,6 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:otrapp/screens/home_screen.dart';
+import 'package:otrapp/screens/register_screen.dart';
 import 'package:otrapp/services/auth_sevice.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -88,12 +89,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ),
                                   const SizedBox(
-                                    height: 50.0,
+                                    height: 30.0,
                                   ),
                                   TextField(
                                     controller: emailController,
                                     decoration: const InputDecoration(
-                                      labelText: 'Correo',
+                                      labelText: 'Ingresa tu correo',
                                       border: OutlineInputBorder(),
                                     ),
                                   ),
@@ -104,9 +105,24 @@ class _LoginScreenState extends State<LoginScreen> {
                                     obscureText: true,
                                     controller: passwordController,
                                     decoration: const InputDecoration(
-                                        labelText: "Contraseña",
+                                        labelText: "Ingresa tu contraseña",
                                         border: OutlineInputBorder()),
                                   ),
+                                  // esta falte falta traajar para recuperar contraseña
+
+                                  const SizedBox(
+                                    height: 20.0,
+                                  ),
+                                  TextButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const LoginScreen()));
+                                      },
+                                      child: const Text(
+                                          "¿Olvidaste tu contraseña? Click aquí")),
                                   const SizedBox(
                                     height: 30,
                                   ),
@@ -164,6 +180,19 @@ class _LoginScreenState extends State<LoginScreen> {
                                             ),
                                           ),
                                         ),
+                                  const SizedBox(
+                                    height: 10.0,
+                                  ),
+                                  TextButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const RegisterScreen()));
+                                      },
+                                      child: const Text(
+                                          "¿No tienes cuenta? Registrate"))
                                 ],
                               ),
                             ),

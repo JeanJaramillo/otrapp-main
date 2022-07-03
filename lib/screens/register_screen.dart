@@ -84,8 +84,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     "Ingresa tus datos",
                                     style: TextStyle(
                                       color: Colors.black,
-                                      fontSize: 15.0,
-                                      fontWeight: FontWeight.w300,
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.w100,
                                     ),
                                   ),
                                   const SizedBox(
@@ -115,11 +115,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     obscureText: true,
                                     controller: confirmPasswordController,
                                     decoration: const InputDecoration(
-                                        labelText: "Confirmar Contraseña",
+                                        labelText: "Confirma tu contraseña",
                                         border: OutlineInputBorder()),
                                   ),
                                   const SizedBox(
-                                    height: 15,
+                                    height: 10,
                                   ),
                                   loading
                                       ? const CircularProgressIndicator()
@@ -180,7 +180,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                             child: const Text(
                                               "Crear Cuenta",
                                               style: TextStyle(
-                                                  fontSize: 25,
+                                                  fontSize: 20,
                                                   fontWeight: FontWeight.bold),
                                             ),
                                           ),
