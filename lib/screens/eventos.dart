@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:multilevel_drawer/multilevel_drawer.dart';
 import 'package:otrapp/screens/Perfil.dart';
@@ -12,104 +13,6 @@ class Eventos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: MultiLevelDrawer(
-          backgroundColor: Colors.white,
-          rippleColor: Colors.white,
-          subMenuBackgroundColor: Colors.grey.shade100,
-          header: Center(
-              child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
-              Image(
-                image: NetworkImage(
-                    "https://z-p3-scontent.flim3-2.fna.fbcdn.net/v/t1.6435-9/39522454_2012494015470025_6587034575568896000_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeGbZUwVGs0A07pWTeLysH_yByQoJJpNmv8HJCgkmk2a_79hQLhbRxjgBDpCumilI9ryFMrvll1fgLdbxRUYT1BF&_nc_ohc=Nbx2JGkE_kAAX9Q9WMc&_nc_ht=z-p3-scontent.flim3-2.fna&oh=00_AT8oT5-odF_1PCKZsuweIpvMwc9zFp9NGgyjy6EGdp15ag&oe=62C6120C"),
-                width: 100,
-                height: 100,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text("joao riofrio")
-            ],
-          )),
-          children: [
-            // Child Elements for Each Drawer Item
-            MLMenuItem(
-                leading: const Icon(Icons.person),
-                content: const Text(
-                  "Mi Perfil",
-                ),
-                onClick: () {
-                  Navigator.of(context).pop();
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext context) => const Profile()));
-                }),
-            MLMenuItem(
-                leading: const Icon(Icons.settings),
-                trailing: const Icon(Icons.arrow_right),
-                content: const Text("Configuraciòn"),
-                onClick: () {},
-                subMenuItems: [
-                  MLSubmenu(
-                      onClick: () {
-                        Navigator.of(context).pop();
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                const EditaPerfil()));
-                      },
-                      submenuContent: const Text("Editar tu Perfil")),
-                  MLSubmenu(
-                      onClick: () {
-                        Navigator.of(context).pop();
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                const Eliminarcuenta()));
-                      },
-                      submenuContent: const Text("Eliminar tu Cuenta "))
-                ]),
-            MLMenuItem(
-              leading: const Icon(Icons.emoji_events),
-              content: const Text("Eventos"),
-              onClick: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => const Eventos()));
-              },
-            ),
-            MLMenuItem(
-                leading: const Icon(Icons.chat),
-                content: const Text(
-                  "Chat",
-                ),
-                onClick: () {
-                  Navigator.of(context).pop();
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext context) => const Chat()));
-                }),
-            MLMenuItem(
-                leading: const Icon(Icons.assessment_sharp),
-                content: const Text(
-                  "Monitoreo de Salud",
-                ),
-                onClick: () {
-                  Navigator.of(context).pop();
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext context) =>
-                          const ChartHomePage()));
-                }),
-            MLMenuItem(
-                leading: const Icon(Icons.payment),
-                content: const Text(
-                  "Cerrar Sesiòn",
-                ),
-                onClick: () {
-                  Navigator.of(context).pop();
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext context) =>
-                          const RegisterScreen()));
-                }),
-          ],
-        ),
         appBar: AppBar(
           backgroundColor: Colors.white,
           iconTheme: const IconThemeData(color: Colors.black),
@@ -118,126 +21,213 @@ class Eventos extends StatelessWidget {
             style: TextStyle(color: Colors.black),
           ),
         ),
-        body: ListView(
-          shrinkWrap: true,
-          padding: const EdgeInsets.all(20.0),
-          children: [
-            _eventOne(),
-            _eventTwo(),
-            _eventThree(),
-            _eventFour(),
-            _eventFive()
-          ],
-        ));
-  }
+        body: ListView(children: <Widget>[
+          Container(
+            height: 600,
 
-  _eventOne() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        height: 180.0,
-        decoration: BoxDecoration(
-          color: const Color(0xfff6eaff),
-          borderRadius: const BorderRadius.all(Radius.circular(32)),
-          boxShadow: [
-            BoxShadow(
-                color: const Color(0xff86727a).withOpacity(0.29),
-                offset: const Offset(-10, 10),
-                blurRadius: 10,
-                spreadRadius: 10)
-          ],
-          image: const DecorationImage(
-              image: AssetImage('assets/1.png'), fit: BoxFit.cover),
-        ),
-      ),
-    );
-  }
+            //damos  un poco de relleno
 
-  _eventTwo() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        height: 180.0,
-        decoration: BoxDecoration(
-          color: const Color(0xfff6eaff),
-          borderRadius: const BorderRadius.all(Radius.circular(32)),
-          boxShadow: [
-            BoxShadow(
-                color: const Color(0xff86727a).withOpacity(0.29),
-                offset: const Offset(-10, 10),
-                blurRadius: 10,
-                spreadRadius: 10)
-          ],
-          image: const DecorationImage(
-              image: AssetImage('assets/2.png'), fit: BoxFit.cover),
-        ),
-      ),
-    );
-  }
+            padding: EdgeInsets.all(10),
+            child: Card(
+              elevation: 20,
+              color: Colors.grey[300],
+              shadowColor: Colors.blueGrey,
+              // crear una esquina redondeada
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)),
+              //agregamos los margenes
+              margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+              //vamos a dar una columna para permitir más detalles
+              child: Column(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30),
+                    ),
+                    child: Image(
+                      image: AssetImage('assets/evento_ciclismo1.png'),
+                      fit: BoxFit.none,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 20),
+                    alignment: Alignment.center,
+                    child: Text('GRAN RECORRIDO A  PUNTA HERMOSA. ',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 28,
+                        )),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 20),
+                    alignment: Alignment.center,
+                    child: Text(
+                      'JUEV.26 de Abril a las 06:00 am.\n '
+                      'Calle los narcos 690-Miraflores\n'
+                      '569 Intesados -100 asistiran\n',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  RaisedButton(
+                    color: Colors.red,
+                    textColor: Colors.black,
+                    child:
+                        Text("Me Interesa", style: TextStyle(fontSize: 20.0)),
+                    onPressed: () {},
+                  )
+                ],
+              ),
+            ),
+          ),
+          Container(
+              height: 600,
 
-  _eventThree() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        height: 180.0,
-        decoration: BoxDecoration(
-          color: const Color(0xfff6eaff),
-          borderRadius: const BorderRadius.all(Radius.circular(32)),
-          boxShadow: [
-            BoxShadow(
-                color: const Color(0xff86727a).withOpacity(0.29),
-                offset: const Offset(-10, 10),
-                blurRadius: 10,
-                spreadRadius: 10)
-          ],
-          image: const DecorationImage(
-              image: AssetImage('assets/3.png'), fit: BoxFit.cover),
-        ),
-      ),
-    );
-  }
+              //damos  un poco de relleno
 
-  _eventFour() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        height: 180.0,
-        decoration: BoxDecoration(
-          color: const Color(0xfff6eaff),
-          borderRadius: const BorderRadius.all(Radius.circular(32)),
-          boxShadow: [
-            BoxShadow(
-                color: const Color(0xff86727a).withOpacity(0.29),
-                offset: const Offset(-10, 10),
-                blurRadius: 10,
-                spreadRadius: 10)
-          ],
-          image: const DecorationImage(
-              image: AssetImage('assets/4.png'), fit: BoxFit.cover),
-        ),
-      ),
-    );
-  }
+              padding: EdgeInsets.all(10),
+              child: Card(
+                  elevation: 20,
+                  color: Colors.grey[300],
+                  shadowColor: Colors.blueGrey,
+                  // crear una esquina redondeada
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)),
+                  //agregamos los margenes
+                  margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                  //vamos a dar una columna para permitir más detalles
+                  child: Column(children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30),
+                      ),
+                      child: Image(
+                        image: AssetImage('evento1.png'),
+                        fit: BoxFit.none,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 20),
+                      alignment: Alignment.center,
+                      child: Text('GRAN RECORRIDO A  PUNTA HERMOSA. ',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 28,
+                          )),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 20),
+                      alignment: Alignment.center,
+                      child: Text(
+                        'JUEV.26 de Abril a las 06:00 am.\n '
+                        'Calle los narcos 690-Miraflores\n'
+                        '569 Intesados -100 asistiran\n',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    RaisedButton(
+                      color: Colors.red,
+                      textColor: Colors.black,
+                      child:
+                          Text("Me Interesa", style: TextStyle(fontSize: 20.0)),
+                      onPressed: () {},
+                    )
+                  ]))),
+          Container(
+              height: 600,
 
-  _eventFive() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        height: 180.0,
-        decoration: BoxDecoration(
-          color: const Color(0xfff6eaff),
-          borderRadius: const BorderRadius.all(Radius.circular(32)),
-          boxShadow: [
-            BoxShadow(
-                color: const Color(0xff86727a).withOpacity(0.29),
-                offset: const Offset(-10, 10),
-                blurRadius: 10,
-                spreadRadius: 10)
-          ],
-          image: const DecorationImage(
-              image: AssetImage('assets/5.png'), fit: BoxFit.cover),
-        ),
-      ),
-    );
+              //damos  un poco de relleno
+
+              padding: EdgeInsets.all(10),
+              child: Card(
+                  elevation: 20,
+                  color: Colors.grey[300],
+                  shadowColor: Colors.blueGrey,
+                  // crear una esquina redondeada
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)),
+                  //agregamos los margenes
+                  margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                  //vamos a dar una columna para permitir más detalles
+                  child: Column(children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30),
+                      ),
+                      child: Image(
+                        image: AssetImage('evento2.png'),
+                        fit: BoxFit.none,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 20),
+                      alignment: Alignment.center,
+                      child: Text('GRAN RECORRIDO A  PUNTA HERMOSA. ',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 28,
+                          )),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 20),
+                      alignment: Alignment.center,
+                      child: const Text(
+                        'JUEV.26 de Abril a las 06:00 am.\n '
+                        'Calle los narcos 690-Miraflores\n'
+                        '569 Intesados -100 asistiran\n',
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                    RaisedButton(
+                      color: Colors.red,
+                      textColor: Colors.black,
+                      child:
+                          Text("Me Interesa", style: TextStyle(fontSize: 20.0)),
+                      onPressed: () {},
+                    )
+                  ])))
+        ]));
   }
 }
+/*MaterialButton(
+                    minWidth: 200.0,
+                    height: 40.0,
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) => const Chat()));
+                    },
+                    color: Colors.lightBlue,
+                    child: Text('Material Button',
+                        style: TextStyle(color: Colors.white)),
+                  ),*/
