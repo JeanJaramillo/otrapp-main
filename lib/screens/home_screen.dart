@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:multilevel_drawer/multilevel_drawer.dart';
+import 'package:otrapp/screens/CrearEventos.dart';
 import 'package:otrapp/screens/Perfil.dart';
+import 'package:otrapp/screens/addnote.dart';
 import 'package:otrapp/screens/chart_homepage.dart';
 import 'package:otrapp/screens/chat.dart';
 import 'package:otrapp/screens/editarperfil.dart';
@@ -75,7 +77,16 @@ class HomeScreen extends StatelessWidget {
               onClick: () {
                 Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => const Eventos()));
+                    builder: (BuildContext context) => Home()));
+              },
+            ),
+            MLMenuItem(
+              leading: const Icon(Icons.emoji_events, color: Colors.green),
+              content: const Text("Eventoscrear"),
+              onClick: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => addnote()));
               },
             ),
             MLMenuItem(
