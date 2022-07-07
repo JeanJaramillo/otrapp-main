@@ -4,6 +4,8 @@
         android:label="On The Route"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
+          <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyAnZE7ylVw9EsX0Ezp5b7G0PrSkdqwqgGE"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
