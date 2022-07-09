@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
               child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const <Widget>[
-              Image(
+              /*Image(
                 image: NetworkImage(
                     "https://z-p3-scontent.flim3-2.fna.fbcdn.net/v/t1.6435-9/39522454_2012494015470025_6587034575568896000_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeGbZUwVGs0A07pWTeLysH_yByQoJJpNmv8HJCgkmk2a_79hQLhbRxjgBDpCumilI9ryFMrvll1fgLdbxRUYT1BF&_nc_ohc=Nbx2JGkE_kAAX9Q9WMc&_nc_ht=z-p3-scontent.flim3-2.fna&oh=00_AT8oT5-odF_1PCKZsuweIpvMwc9zFp9NGgyjy6EGdp15ag&oe=62C6120C"),
                 width: 100,
@@ -33,7 +33,7 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              Text("joao riofrio")
+              Text("joao riofrio")*/
             ],
           )),
           children: [
@@ -52,7 +52,7 @@ class HomeScreen extends StatelessWidget {
                             builder: (BuildContext context) =>
                                 const EditaPerfil()));
                       },
-                      submenuContent: const Text("Editar tu Perfil")),
+                      submenuContent: const Text("Editar tu perfil")),
                   MLSubmenu(
                       onClick: () {
                         Navigator.of(context).pop();
@@ -60,7 +60,7 @@ class HomeScreen extends StatelessWidget {
                             builder: (BuildContext context) =>
                                 const Eliminarcuenta()));
                       },
-                      submenuContent: const Text("Eliminar tu Cuenta "))
+                      submenuContent: const Text("Eliminar tu cuenta "))
                 ]),
             MLMenuItem(
               leading: const Icon(Icons.emoji_events, color: Colors.green),
@@ -73,7 +73,7 @@ class HomeScreen extends StatelessWidget {
             ),
             MLMenuItem(
               leading: const Icon(Icons.emoji_events, color: Colors.green),
-              content: const Text("Eventoscrear"),
+              content: const Text("Crear eventos"),
               onClick: () {
                 Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
@@ -93,7 +93,7 @@ class HomeScreen extends StatelessWidget {
             MLMenuItem(
                 leading: const Icon(Icons.assessment_sharp, color: Colors.pink),
                 content: const Text(
-                  "Monitoreo de Salud",
+                  "Monitoreo de salud",
                 ),
                 onClick: () {
                   Navigator.of(context).pop();

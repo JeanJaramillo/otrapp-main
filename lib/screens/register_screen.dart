@@ -73,7 +73,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     "Hola Bienvenido",
                                     style: TextStyle(
                                       color: Colors.black,
-                                      fontSize: 30.0,
+                                      fontSize: 25.0,
                                       fontWeight: FontWeight.w800,
                                     ),
                                   ),
@@ -186,7 +186,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                           ),
                                         ),
                                   const SizedBox(
-                                    height: 20,
+                                    height: 12,
                                   ),
                                   TextButton(
                                       onPressed: () {

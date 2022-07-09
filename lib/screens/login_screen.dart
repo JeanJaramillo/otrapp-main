@@ -73,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     "Bienvenido de Vuelta",
                                     style: TextStyle(
                                       color: Colors.black,
-                                      fontSize: 30.0,
+                                      fontSize: 25.0,
                                       fontWeight: FontWeight.w800,
                                     ),
                                   ),
@@ -89,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ),
                                   const SizedBox(
-                                    height: 30.0,
+                                    height: 25.0,
                                   ),
                                   TextField(
                                     controller: emailController,
@@ -99,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ),
                                   const SizedBox(
-                                    height: 30,
+                                    height: 20,
                                   ),
                                   TextField(
                                     obscureText: true,
@@ -111,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   // esta falte falta traajar para recuperar contraseña
 
                                   const SizedBox(
-                                    height: 20.0,
+                                    height: 15.0,
                                   ),
                                   TextButton(
                                       onPressed: () {
@@ -124,7 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       child: const Text(
                                           "¿Olvidaste tu contraseña? Click aquí")),
                                   const SizedBox(
-                                    height: 30,
+                                    height: 12,
                                   ),
                                   loading
                                       ? const CircularProgressIndicator()

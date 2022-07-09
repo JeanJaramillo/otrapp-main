@@ -35,7 +35,6 @@ class _MyHomePageState extends State<MyHomePage> {
   var address = '';
   var options = [
     MapType.normal,
-    MapType.hybrid,
     MapType.terrain,
     MapType.satellite,
   ];
@@ -61,14 +60,14 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue[900],
+        backgroundColor: Colors.white,
         title: Text('Map App'),
         actions: [
           DropdownButton<MapType>(
-            dropdownColor: Colors.blue[900],
+            dropdownColor: Colors.white,
             isDense: true,
             isExpanded: false,
-            iconEnabledColor: Colors.white,
+            iconEnabledColor: Colors.red,
             focusColor: Colors.white,
             items: options.map((MapType dropDownStringItem) {
               return DropdownMenuItem<MapType>(
@@ -76,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text(
                   dropDownStringItem.toString(),
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                   ),
