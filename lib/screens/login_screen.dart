@@ -111,9 +111,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                   // esta falte falta traajar para recuperar contraseña
 
                                   const SizedBox(
-                                    height: 15.0,
+                                    height: 20.0,
                                   ),
-                                  TextButton(
+                                  /*TextButton(
                                       onPressed: () {
                                         Navigator.push(
                                             context,
@@ -125,7 +125,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           "¿Olvidaste tu contraseña? Click aquí")),
                                   const SizedBox(
                                     height: 12,
-                                  ),
+                                  ),*/
                                   loading
                                       ? const CircularProgressIndicator()
                                       : SizedBox(
@@ -181,7 +181,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           ),
                                         ),
                                   const SizedBox(
-                                    height: 10.0,
+                                    height: 15.0,
                                   ),
                                   TextButton(
                                       onPressed: () {

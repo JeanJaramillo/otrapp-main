@@ -20,9 +20,9 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "todo app",
+      title: "Eventos",
       theme: ThemeData(
-        primaryColor: Colors.blue[900],
+        primaryColor: Colors.white,
       ),
       home: Home(),
     );
@@ -50,13 +50,17 @@ class _HomeState extends State<Home> {
         ),
       ),
       appBar: AppBar(
-        title: Text('todo'),
+        title: Text(
+          'Eventos',
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.white,
       ),
       body: StreamBuilder(
         stream: _usersStream,
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.hasError) {
-            return Text("something is wrong");
+            return Text("algo está mal");
           }
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(

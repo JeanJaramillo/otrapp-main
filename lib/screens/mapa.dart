@@ -8,7 +8,7 @@ class Mapa extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'MAPA',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -27,11 +27,11 @@ class _MyHomePageState extends State<MyHomePage> {
   GoogleMapController? controller;
 
   final CameraPosition initialPosition =
-      CameraPosition(target: LatLng(19.060617, 72.848791));
+      CameraPosition(target: LatLng(-12.050701575821765, -77.04694602351981));
   var typemap = MapType.normal;
   var cordinate1 = 'cordinate';
-  var lat = 19.060617;
-  var long = 72.848791;
+  var lat = -12.050701575821765;
+  var long = -77.04694602351981;
   var address = '';
   var options = [
     MapType.normal,
@@ -61,7 +61,10 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Text('Map App'),
+        title: Text(
+          'Mapa OTR',
+          style: TextStyle(color: Colors.black),
+        ),
         actions: [
           DropdownButton<MapType>(
             dropdownColor: Colors.white,

@@ -25,6 +25,11 @@ class _editnoteState extends State<editnote> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Text(
+          'Crear Eventos',
+          style: TextStyle(color: Colors.black),
+        ),
         actions: [
           MaterialButton(
             onPressed: () {
