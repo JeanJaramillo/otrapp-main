@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:multilevel_drawer/multilevel_drawer.dart';
-import 'package:otrapp/screens/Perfil.dart';
 import 'package:otrapp/screens/chat.dart';
 import 'package:otrapp/screens/editarperfil.dart';
 import 'package:otrapp/screens/eliminarperfil.dart';
 import 'package:otrapp/screens/eventos.dart';
+import 'package:otrapp/screens/home_screen.dart';
 import 'package:otrapp/screens/register_screen.dart';
 
 class ChartHomePage extends StatefulWidget {
@@ -157,7 +157,7 @@ class _ChartHomePageState extends State<ChartHomePage> {
               onClick: () {
                 Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => const Profile()));
+                    builder: (BuildContext context) => HomeScreen()));
               }),
           MLMenuItem(
               leading: const Icon(Icons.settings),
