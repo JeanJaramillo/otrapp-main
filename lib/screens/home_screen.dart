@@ -8,6 +8,7 @@ import 'package:otrapp/screens/chat.dart';
 import 'package:otrapp/screens/editarperfil.dart';
 import 'package:otrapp/screens/eliminarperfil.dart';
 import 'package:otrapp/screens/eventos.dart';
+import 'package:otrapp/screens/mapa.dart';
 import 'package:otrapp/screens/register_screen.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -111,6 +112,16 @@ class HomeScreen extends StatelessWidget {
                     builder: (BuildContext context) => const ChartHomePage()));
               }),
           MLMenuItem(
+              leading: const Icon(Icons.assessment_sharp, color: Colors.pink),
+              content: const Text(
+                "Monitoreo de Salud",
+              ),
+              onClick: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => Mapa()));
+              }),
+          MLMenuItem(
               leading: const Icon(Icons.payment, color: Colors.cyan),
               content: const Text(
                 "Cerrar Sesiòn",
@@ -122,134 +133,25 @@ class HomeScreen extends StatelessWidget {
               }),
         ],
       ),
-    );
-  }
-}
-
-/*class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  GoogleMapController? controller;
-
-  final CameraPosition initialPosition =
-      CameraPosition(target: LatLng(19.060617, 72.848791));
-  var typemap = MapType.normal;
-  var cordinate1 = 'cordinate';
-  var lat = 19.060617;
-  var long = 72.848791;
-  var address = '';
-  var options = [
-    MapType.normal,
-    MapType.hybrid,
-    MapType.terrain,
-    MapType.satellite,
-  ];
-
-  var _currentItemSelected = MapType.normal;
-
-  Future<void> getAddress(latt, longg) async {
-    List<Placemark> placemark = await placemarkFromCoordinates(latt, longg);
-    print(
-        '-----------------------------------------------------------------------------------------');
-    //here you can see your all the relevent information based on latitude and logitude no.
-    print(placemark);
-    print(
-        '-----------------------------------------------------------------------------------------');
-    Placemark place = placemark[0];
-    setState(() {
-      address =
-          '${place.street}, ${place.subLocality}, ${place.locality}, ${place.postalCode}, ${place.country}';
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue[900],
-        title: Text('Map App'),
-        actions: [
-          DropdownButton<MapType>(
-            dropdownColor: Colors.blue[900],
-            isDense: true,
-            isExpanded: false,
-            iconEnabledColor: Colors.white,
-            focusColor: Colors.white,
-            items: options.map((MapType dropDownStringItem) {
-              return DropdownMenuItem<MapType>(
-                value: dropDownStringItem,
-                child: Text(
-                  dropDownStringItem.toString(),
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-              );
-            }).toList(),
-            onChanged: (newValueSelected) {
-              setState(() {
-                _currentItemSelected = newValueSelected!;
-                typemap = newValueSelected;
-              });
-            },
-            value: _currentItemSelected,
-          ),
-        ],
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black),
+        title: Text(
+          "ROUTE MAPS",
+          style: TextStyle(color: Colors.black),
+        ),
       ),
-      body: Stack(
-        children: [
-          GoogleMap(
-            initialCameraPosition: initialPosition,
-            mapType: typemap,
-            onMapCreated: (controller) {
-              setState(() {
-                controller = controller;
-              });
-            },
-            onTap: (cordinate) {
-              setState(() {
-                lat = cordinate.latitude;
-                long = cordinate.longitude;
-                getAddress(lat, long);
-
-                cordinate1 = cordinate.toString();
-              });
-            },
+      body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Color.fromRGBO(255, 65, 108, 1.0),
+                  Color.fromRGBO(255, 75, 43, 1.0),
+                ]),
           ),
-          Positioned(
-            left: 5,
-            bottom: 150,
-            child: Text(
-              cordinate1,
-              softWrap: false,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 15,
-              ),
-            ),
-          ),
-          Positioned(
-            left: 15,
-            bottom: 100,
-            child: Container(
-              width: 200,
-              child: Text(
-                address,
-                softWrap: true,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15,
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
+          child: Center()),
     );
   }
-}*/
+}
