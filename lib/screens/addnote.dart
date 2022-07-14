@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:otrapp/screens/CrearEventos.dart';
 
-class addnote extends StatelessWidget {
+class Addnote extends StatelessWidget {
   TextEditingController title = TextEditingController();
   TextEditingController content = TextEditingController();
 
@@ -13,7 +13,8 @@ class addnote extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Text('Crear Eventos', style: TextStyle(color: Colors.black)),
+        title:
+            const Text('Crear Eventos', style: TextStyle(color: Colors.black)),
         actions: [
           MaterialButton(
             onPressed: () {
@@ -25,7 +26,7 @@ class addnote extends StatelessWidget {
                     context, MaterialPageRoute(builder: (_) => Home()));
               });
             },
-            child: Text(
+            child: const Text(
               "save",
             ),
           ),

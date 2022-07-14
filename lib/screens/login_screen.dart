@@ -89,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ),
                                   const SizedBox(
-                                    height: 25.0,
+                                    height: 10.0,
                                   ),
                                   TextField(
                                     controller: emailController,
@@ -181,7 +181,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           ),
                                         ),
                                   const SizedBox(
-                                    height: 15.0,
+                                    height: 2.0,
                                   ),
                                   TextButton(
                                       onPressed: () {

@@ -4,10 +4,6 @@ import 'package:otrapp/screens/CrearEventos.dart';
 import 'package:otrapp/screens/addnote.dart';
 import 'package:otrapp/screens/calculadora_IMC.dart';
 import 'package:otrapp/screens/chat.dart';
-import 'package:otrapp/screens/editarperfil.dart';
-import 'package:otrapp/screens/eliminarperfil.dart';
-import 'package:otrapp/screens/eventos.dart';
-import 'package:otrapp/screens/mapa.dart';
 import 'package:otrapp/screens/register_screen.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -37,31 +33,6 @@ class HomeScreen extends StatelessWidget {
             ],
           )),
           children: [
-            // Child Elements for Each Drawer Item
-
-            MLMenuItem(
-                leading: const Icon(Icons.settings, color: Colors.orange),
-                trailing: const Icon(Icons.arrow_right),
-                content: const Text("Configuraciòn"),
-                onClick: () {},
-                subMenuItems: [
-                  MLSubmenu(
-                      onClick: () {
-                        Navigator.of(context).pop();
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                const EditaPerfil()));
-                      },
-                      submenuContent: const Text("Editar tu perfil")),
-                  MLSubmenu(
-                      onClick: () {
-                        Navigator.of(context).pop();
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                const Eliminarcuenta()));
-                      },
-                      submenuContent: const Text("Eliminar tu cuenta "))
-                ]),
             MLMenuItem(
               leading: const Icon(Icons.emoji_events, color: Colors.green),
               content: const Text("Eventos"),
@@ -77,7 +48,7 @@ class HomeScreen extends StatelessWidget {
               onClick: () {
                 Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => addnote()));
+                    builder: (BuildContext context) => Addnote()));
               },
             ),
             MLMenuItem(
@@ -101,17 +72,6 @@ class HomeScreen extends StatelessWidget {
                       builder: (BuildContext context) => MyCalculatorApp()));
                 }),
             MLMenuItem(
-                leading:
-                    const Icon(Icons.maps_ugc_rounded, color: Colors.black),
-                content: const Text(
-                  "Mapa",
-                ),
-                onClick: () {
-                  Navigator.of(context).pop();
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext context) => Mapa()));
-                }),
-            MLMenuItem(
                 leading: const Icon(Icons.payment, color: Colors.cyan),
                 content: const Text(
                   "Cerrar Sesiòn",
@@ -128,7 +88,7 @@ class HomeScreen extends StatelessWidget {
           backgroundColor: Colors.white,
           iconTheme: IconThemeData(color: Colors.black),
           title: Text(
-            "Mi Perfil",
+            "MI PERFIL",
             style: TextStyle(color: Colors.black),
           ),
         ),
@@ -228,8 +188,7 @@ Widget _accountInfo() {
     child: Column(
       children: [
         const CircleAvatar(
-          backgroundImage: NetworkImage(
-              'https://scontent.flim24-1.fna.fbcdn.net/v/t1.6435-9/41980161_2055696874483072_8880176146717605888_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeE39UBV41QrSW7QZWMCeqWlhtpbHus_ifSG2lse6z-J9PchsYXtewGHrtLRNO4hRuU2UR2K45XmWGGN61wBUnru&_nc_ohc=b9Uaa6fVihYAX_c9MlD&_nc_ht=scontent.flim24-1.fna&oh=00_AT9zYMobIWSdrUccOBVgN6TziA1DEhlThhhXLB64Ph9GiA&oe=62B0375F'),
+          backgroundImage: AssetImage('assets/profile.png'),
           radius: 70.0,
         ),
         Container(
@@ -239,14 +198,6 @@ Widget _accountInfo() {
                   color: Colors.white,
                   fontWeight: FontWeight.w600,
                   fontSize: 24.0)),
-        ),
-        Container(
-          margin: const EdgeInsets.symmetric(vertical: 2.0),
-          child: const Text('Joaoflores1611@gmail.com',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 15.0)),
         )
       ],
     ),
@@ -258,10 +209,10 @@ Widget _followTabs() {
   return Container(
     color: const Color.fromRGBO(0, 0, 0, 0.4),
     //se modifica la ubicacion del contenedor margin
-    margin: const EdgeInsets.only(top: 1.0),
-    padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15.0),
+    margin: const EdgeInsets.only(top: 0.0),
+    padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
     child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Column(
           children: const [
@@ -281,7 +232,7 @@ Widget _followTabs() {
             Text('23 KM',
                 style: TextStyle(
                   color: Color.fromARGB(255, 253, 254, 254),
-                  fontSize: 20.0,
+                  fontSize: 17.0,
                   fontWeight: FontWeight.w500,
                 )),
           ],
@@ -304,7 +255,7 @@ Widget _followTabs() {
             Text('@joao_4250',
                 style: TextStyle(
                   color: Color.fromARGB(255, 253, 254, 254),
-                  fontSize: 20.0,
+                  fontSize: 17.0,
                   fontWeight: FontWeight.w500,
                 )),
           ],
@@ -317,17 +268,17 @@ Widget _followTabs() {
               size: 18.0,
             ),
             Text(
-              'Ubicacion ',
+              'Ubicacion',
               style: TextStyle(
                 color: Color.fromARGB(255, 253, 254, 254),
                 fontSize: 12.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Text('Villa Salvado-Lima,PERÚ',
+            Text('Villa Salvador',
                 style: TextStyle(
                   color: Color.fromARGB(255, 253, 254, 254),
-                  fontSize: 20.0,
+                  fontSize: 17.0,
                   fontWeight: FontWeight.w500,
                 )),
           ],

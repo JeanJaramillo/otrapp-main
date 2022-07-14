@@ -49,7 +49,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         flex: 2,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
-                              vertical: 36.0, horizontal: 24.0),
+                              vertical: 36.0, horizontal: 10.0),
                           child: Column(children: const []),
                         ),
                       ),
@@ -89,7 +89,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     ),
                                   ),
                                   const SizedBox(
-                                    height: 15.0,
+                                    height: 6.0,
                                   ),
                                   TextField(
                                     controller: emailController,
@@ -186,7 +186,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                           ),
                                         ),
                                   const SizedBox(
-                                    height: 12,
+                                    height: 3.0,
                                   ),
                                   TextButton(
                                       onPressed: () {
