@@ -2,15 +2,16 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:otrapp/screens/CrearEventos.dart';
 
-class editnote extends StatefulWidget {
+// ignore: must_be_immutable
+class Editenote extends StatefulWidget {
   DocumentSnapshot docid;
-  editnote({required this.docid});
+  Editenote({Key? key, required this.docid}) : super(key: key);
 
   @override
-  _editnoteState createState() => _editnoteState();
+  _EditenoteState createState() => _EditenoteState();
 }
 
-class _editnoteState extends State<editnote> {
+class _EditenoteState extends State<Editenote> {
   TextEditingController title = TextEditingController();
   TextEditingController content = TextEditingController();
 
@@ -26,7 +27,7 @@ class _editnoteState extends State<editnote> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Text(
+        title: const Text(
           'Crear Eventos',
           style: TextStyle(color: Colors.black),
         ),
@@ -38,22 +39,23 @@ class _editnoteState extends State<editnote> {
                 'content': content.text,
               }).whenComplete(() {
                 Navigator.pushReplacement(
-                    context, MaterialPageRoute(builder: (_) => Home()));
+                    context, MaterialPageRoute(builder: (_) => const Home()));
               });
             },
-            child: Text("save"),
+            child: const Text("save"),
           ),
           MaterialButton(
             onPressed: () {
               widget.docid.reference.delete().whenComplete(() {
                 Navigator.pushReplacement(
-                    context, MaterialPageRoute(builder: (_) => Home()));
+                    context, MaterialPageRoute(builder: (_) => const Home()));
               });
             },
-            child: Text("delete"),
+            child: const Text("delete"),
           ),
         ],
       ),
+      // ignore: avoid_unnecessary_containers
       body: Container(
         child: Column(
           children: [
@@ -61,12 +63,12 @@ class _editnoteState extends State<editnote> {
               decoration: BoxDecoration(border: Border.all()),
               child: TextField(
                 controller: title,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'title',
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Expanded(
@@ -76,7 +78,7 @@ class _editnoteState extends State<editnote> {
                   controller: content,
                   expands: true,
                   maxLines: null,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: 'content',
                   ),
                 ),

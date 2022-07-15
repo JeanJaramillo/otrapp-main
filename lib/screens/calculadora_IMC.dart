@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_new, use_key_in_widget_constructors, file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'dart:math';
 
 import 'package:decimal/decimal.dart';
@@ -16,12 +18,16 @@ class MyCalculatorApp extends StatelessWidget {
 }
 
 class MyCalculator extends StatefulWidget {
+  @override
   State<StatefulWidget> createState() => Calculadora();
 }
 
 class Calculadora extends State<MyCalculator> {
+  // ignore: non_constant_identifier_names
   final controller_peso = TextEditingController();
+  // ignore: non_constant_identifier_names
   final controller_talla = TextEditingController();
+  // ignore: non_constant_identifier_names
   final my_form_key = GlobalKey<FormState>();
   final d = Decimal;
 
@@ -29,6 +35,7 @@ class Calculadora extends State<MyCalculator> {
   String pesoSugerido = "";
 
   //creamos la clase para calcular peso mujer
+  // ignore: non_constant_identifier_names
   void PesoIdealMujer() {
     int pesoidealm = 21;
     int decimals = 2; //solo me muestre dos decimales
@@ -60,6 +67,7 @@ class Calculadora extends State<MyCalculator> {
   }
 
   //formula para el hombre
+  // ignore: non_constant_identifier_names
   void PesoIdealHombre() {
     int pesoidealh = 24;
     int decimals = 2; //solo me muestre dos decimales
@@ -92,6 +100,7 @@ class Calculadora extends State<MyCalculator> {
 
   //Formula para hacer una operacion arimetica
   //lo que esten perdidos con la formula vamos a crear una mas simple
+  // ignore: non_constant_identifier_names
   void OperacionMatematica() {
     //realizamos las validaciones si algun campo este vacio
     if (my_form_key.currentState!.validate()) {
@@ -112,14 +121,16 @@ class Calculadora extends State<MyCalculator> {
   @override
   Widget build(BuildContext context) {
     final logicalSize = MediaQuery.of(context).size;
+    // ignore: unused_local_variable
     final double _height = logicalSize.height;
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        title: Text('Calculadora IMC'),
+        title: const Text('Calculadora IMC'),
+        // ignore: use_full_hex_values_for_flutter_colors
         backgroundColor: Color(0xFFf01DFD7),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
           onPressed: () {},
         ),
       ),
@@ -133,6 +144,7 @@ class Calculadora extends State<MyCalculator> {
                     width: 500,
                     height: 130,
                     decoration: BoxDecoration(
+                      // ignore: use_full_hex_values_for_flutter_colors
                       color: Color(0xFFf01DFD7),
                       borderRadius: BorderRadius.only(
                           bottomRight: Radius.circular(80),
@@ -165,11 +177,12 @@ class Calculadora extends State<MyCalculator> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(50)),
                               color: Colors.white,
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(color: Colors.black, blurRadius: 5)
                               ]),
                           child: TextFormField(
                             controller: controller_peso,
+                            // ignore: body_might_complete_normally_nullable
                             validator: (value) {
                               if (value!.isEmpty) return "Digita el Peso Kg";
                             },
@@ -189,11 +202,12 @@ class Calculadora extends State<MyCalculator> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(50)),
                               color: Colors.white,
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(color: Colors.black, blurRadius: 5)
                               ]),
                           child: TextFormField(
                             controller: controller_talla,
+                            // ignore: body_might_complete_normally_nullable
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return "Digita Estatura Cm";
@@ -215,6 +229,7 @@ class Calculadora extends State<MyCalculator> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
+                      // ignore: deprecated_member_use
                       FlatButton(
                         onPressed: PesoIdealMujer,
                         shape: new RoundedRectangleBorder(
@@ -222,10 +237,14 @@ class Calculadora extends State<MyCalculator> {
                         color: Colors.pinkAccent,
                         padding: EdgeInsets.all(10.0),
                         child: Column(
-                          children: <Widget>[Icon(Icons.person), Text('Mujer')],
+                          children: const <Widget>[
+                            Icon(Icons.person),
+                            Text('Mujer')
+                          ],
                         ),
                       ),
                       VerticalDivider(),
+                      // ignore: deprecated_member_use
                       FlatButton(
                         onPressed: PesoIdealHombre,
                         shape: new RoundedRectangleBorder(
@@ -233,7 +252,7 @@ class Calculadora extends State<MyCalculator> {
                         color: Colors.blueAccent,
                         padding: EdgeInsets.all(10.0),
                         child: Column(
-                          children: <Widget>[
+                          children: const <Widget>[
                             Icon(Icons.person),
                             Text('Hombre')
                           ],
@@ -250,6 +269,7 @@ class Calculadora extends State<MyCalculator> {
                     width: 300,
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
+                            // ignore: use_full_hex_values_for_flutter_colors
                             colors: [Color(0xFFFE2E64), Color(0xFFfF781D8)]),
                         borderRadius: BorderRadius.all(Radius.circular(15))),
                     //creamos resultado del TextFormField
@@ -270,6 +290,7 @@ class Calculadora extends State<MyCalculator> {
                     width: 300,
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
+                            // ignore: use_full_hex_values_for_flutter_colors
                             colors: [Color(0xFFf04B4AE), Color(0xFFf81F7F3)]),
                         borderRadius: BorderRadius.all(Radius.circular(15))),
                     //creamos resultador del TextFormField

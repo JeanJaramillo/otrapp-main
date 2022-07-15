@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:otrapp/screens/addnote.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -8,10 +10,12 @@ import 'editnote.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -24,12 +28,14 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primaryColor: Colors.white,
       ),
-      home: Home(),
+      home: const Home(),
     );
   }
 }
 
 class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
   @override
   _HomeState createState() => _HomeState();
 }
@@ -45,12 +51,12 @@ class _HomeState extends State<Home> {
           Navigator.pushReplacement(
               context, MaterialPageRoute(builder: (_) => Addnote()));
         },
-        child: Icon(
+        child: const Icon(
           Icons.add,
         ),
       ),
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Eventos',
           style: TextStyle(color: Colors.black),
         ),
@@ -60,10 +66,10 @@ class _HomeState extends State<Home> {
         stream: _usersStream,
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.hasError) {
-            return Text("algo está mal");
+            return const Text("algo está mal");
           }
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }
@@ -81,40 +87,40 @@ class _HomeState extends State<Home> {
                       context,
                       MaterialPageRoute(
                         builder: (_) =>
-                            editnote(docid: snapshot.data!.docs[index]),
+                            Editenote(docid: snapshot.data!.docs[index]),
                       ),
                     );
                   },
                   child: Column(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 4,
                       ),
                       Padding(
-                        padding: EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                           left: 3,
                           right: 3,
                         ),
                         child: ListTile(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
-                            side: BorderSide(
+                            side: const BorderSide(
                               color: Colors.black,
                             ),
                           ),
                           title: Text(
                             snapshot.data!.docChanges[index].doc['title'],
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 20,
                             ),
                           ),
                           subtitle: Text(
                             snapshot.data!.docChanges[index].doc['content'],
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 15,
                             ),
                           ),
-                          contentPadding: EdgeInsets.symmetric(
+                          contentPadding: const EdgeInsets.symmetric(
                             vertical: 12,
                             horizontal: 16,
                           ),

@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
           stream: AuthSevice().firebaseAuth.authStateChanges(),
           builder: (context, snapchot) {
             if (snapchot.hasData) {
-              return HomeScreen();
+              return const HomeScreen();
             }
             return const RegisterScreen();
           },

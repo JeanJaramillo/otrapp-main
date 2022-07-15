@@ -23,7 +23,7 @@ class Addnote extends StatelessWidget {
                 'content': content.text,
               }).whenComplete(() {
                 Navigator.pushReplacement(
-                    context, MaterialPageRoute(builder: (_) => Home()));
+                    context, MaterialPageRoute(builder: (_) => const Home()));
               });
             },
             child: const Text(
@@ -32,6 +32,7 @@ class Addnote extends StatelessWidget {
           ),
         ],
       ),
+      // ignore: avoid_unnecessary_containers
       body: Container(
         child: Column(
           children: [
@@ -39,12 +40,12 @@ class Addnote extends StatelessWidget {
               decoration: BoxDecoration(border: Border.all()),
               child: TextField(
                 controller: title,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'title',
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Expanded(
@@ -54,7 +55,7 @@ class Addnote extends StatelessWidget {
                   controller: content,
                   expands: true,
                   maxLines: null,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: 'content',
                   ),
                 ),

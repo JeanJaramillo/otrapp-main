@@ -5,10 +5,10 @@ import 'package:otrapp/screens/addnote.dart';
 import 'package:otrapp/screens/calculadora_IMC.dart';
 import 'package:otrapp/screens/chat.dart';
 import 'package:otrapp/screens/register_screen.dart';
-import 'package:geocoding/geocoding.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +39,7 @@ class HomeScreen extends StatelessWidget {
               onClick: () {
                 Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => Home()));
+                    builder: (BuildContext context) => const Home()));
               },
             ),
             MLMenuItem(
@@ -86,8 +86,8 @@ class HomeScreen extends StatelessWidget {
         ),
         appBar: AppBar(
           backgroundColor: Colors.white,
-          iconTheme: IconThemeData(color: Colors.black),
-          title: Text(
+          iconTheme: const IconThemeData(color: Colors.black),
+          title: const Text(
             "MI PERFIL",
             style: TextStyle(color: Colors.black),
           ),
@@ -317,6 +317,7 @@ Widget _icons_Tab() {
 }
 
 Widget _photos() {
+  // ignore: avoid_unnecessary_containers
   return Container(
     child: ClipRRect(
         borderRadius: BorderRadius.circular(10.0),
@@ -332,6 +333,7 @@ Widget _photos() {
 
 // ignore: non_constant_identifier_names
 Widget _Galeria() {
+  // ignore: avoid_unnecessary_containers
   return Container(
     child: ClipRRect(
         borderRadius: BorderRadius.circular(10.0),
