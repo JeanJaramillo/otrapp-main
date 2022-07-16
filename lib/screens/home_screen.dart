@@ -3,7 +3,6 @@ import 'package:multilevel_drawer/multilevel_drawer.dart';
 import 'package:otrapp/screens/eventos.dart';
 import 'package:otrapp/screens/crearEvento.dart';
 import 'package:otrapp/screens/calculadora_IMC.dart';
-import 'package:otrapp/screens/chat.dart';
 import 'package:otrapp/screens/register_screen.dart';
 
 class HomeScreen extends StatelessWidget {
