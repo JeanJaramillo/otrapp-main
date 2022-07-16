@@ -28,7 +28,7 @@ class CrearEvento extends StatelessWidget {
               });
             },
             child: const Text(
-              "save",
+              "Guardar",
             ),
           ),
         ],
@@ -42,7 +42,7 @@ class CrearEvento extends StatelessWidget {
               child: TextField(
                 controller: title,
                 decoration: const InputDecoration(
-                  hintText: 'title',
+                  hintText: 'Título',
                 ),
               ),
             ),
@@ -57,7 +57,7 @@ class CrearEvento extends StatelessWidget {
                   expands: true,
                   maxLines: null,
                   decoration: const InputDecoration(
-                    hintText: 'content',
+                    hintText: 'Contenido',
                   ),
                 ),
               ),

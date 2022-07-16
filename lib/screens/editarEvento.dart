@@ -17,8 +17,8 @@ class _EditenoteState extends State<Editenote> {
 
   @override
   void initState() {
-    title = TextEditingController(text: widget.docid.get('title'));
-    content = TextEditingController(text: widget.docid.get('content'));
+    title = TextEditingController(text: widget.docid.get('Título'));
+    content = TextEditingController(text: widget.docid.get('Contenido'));
     super.initState();
   }
 
