@@ -1,11 +1,11 @@
 // ignore_for_file: file_names
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:otrapp/screens/addnote.dart';
+import 'package:otrapp/screens/crearEvento.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'editnote.dart';
+import 'editarEvento.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,14 +42,14 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final Stream<QuerySnapshot> _usersStream =
-      FirebaseFirestore.instance.collection('notes').snapshots();
+      FirebaseFirestore.instance.collection('eventosCreados').snapshots();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (_) => Addnote()));
+              context, MaterialPageRoute(builder: (_) => CrearEvento()));
         },
         child: const Icon(
           Icons.add,
@@ -66,7 +66,7 @@ class _HomeState extends State<Home> {
         stream: _usersStream,
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.hasError) {
-            return const Text("algo está mal");
+            return const Text("Se encontró un error");
           }
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
@@ -98,8 +98,9 @@ class _HomeState extends State<Home> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(
-                          left: 3,
-                          right: 3,
+                          left: 15,
+                          right: 15,
+                          top: 10,
                         ),
                         child: ListTile(
                           shape: RoundedRectangleBorder(
@@ -121,8 +122,8 @@ class _HomeState extends State<Home> {
                             ),
                           ),
                           contentPadding: const EdgeInsets.symmetric(
-                            vertical: 12,
-                            horizontal: 16,
+                            vertical: 20,
+                            horizontal: 20,
                           ),
                         ),
                       ),

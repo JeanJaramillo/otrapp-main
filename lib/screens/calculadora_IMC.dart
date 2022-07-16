@@ -11,6 +11,7 @@ class MyCalculatorApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Calculadora IMC', //indice de masa corporal
       home: MyCalculator(),
     );
@@ -124,16 +125,6 @@ class Calculadora extends State<MyCalculator> {
     // ignore: unused_local_variable
     final double _height = logicalSize.height;
     return Scaffold(
-      resizeToAvoidBottomInset: true,
-      appBar: AppBar(
-        title: const Text('Calculadora IMC'),
-        // ignore: use_full_hex_values_for_flutter_colors
-        backgroundColor: Color(0xFFf01DFD7),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          onPressed: () {},
-        ),
-      ),
       body: Form(
           key: my_form_key,
           child: SingleChildScrollView(

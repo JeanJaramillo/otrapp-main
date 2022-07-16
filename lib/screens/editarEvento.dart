@@ -1,24 +1,40 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:otrapp/screens/CrearEventos.dart';
+import 'package:otrapp/screens/eventos.dart';
 
-class Addnote extends StatelessWidget {
+// ignore: must_be_immutable
+class Editenote extends StatefulWidget {
+  DocumentSnapshot docid;
+  Editenote({Key? key, required this.docid}) : super(key: key);
+
+  @override
+  _EditenoteState createState() => _EditenoteState();
+}
+
+class _EditenoteState extends State<Editenote> {
   TextEditingController title = TextEditingController();
   TextEditingController content = TextEditingController();
 
-  CollectionReference ref = FirebaseFirestore.instance.collection('notes');
+  @override
+  void initState() {
+    title = TextEditingController(text: widget.docid.get('title'));
+    content = TextEditingController(text: widget.docid.get('content'));
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title:
-            const Text('Crear Eventos', style: TextStyle(color: Colors.black)),
+        title: const Text(
+          'Crear Eventos',
+          style: TextStyle(color: Colors.black),
+        ),
         actions: [
           MaterialButton(
             onPressed: () {
-              ref.add({
+              widget.docid.reference.update({
                 'title': title.text,
                 'content': content.text,
               }).whenComplete(() {
@@ -26,9 +42,16 @@ class Addnote extends StatelessWidget {
                     context, MaterialPageRoute(builder: (_) => const Home()));
               });
             },
-            child: const Text(
-              "save",
-            ),
+            child: const Text("save"),
+          ),
+          MaterialButton(
+            onPressed: () {
+              widget.docid.reference.delete().whenComplete(() {
+                Navigator.pushReplacement(
+                    context, MaterialPageRoute(builder: (_) => const Home()));
+              });
+            },
+            child: const Text("delete"),
           ),
         ],
       ),
