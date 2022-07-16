@@ -17,8 +17,8 @@ class _EditenoteState extends State<Editenote> {
 
   @override
   void initState() {
-    title = TextEditingController(text: widget.docid.get('Título'));
-    content = TextEditingController(text: widget.docid.get('Contenido'));
+    title = TextEditingController(text: widget.docid.get('title'));
+    content = TextEditingController(text: widget.docid.get('content'));
     super.initState();
   }
 
@@ -42,7 +42,7 @@ class _EditenoteState extends State<Editenote> {
                     context, MaterialPageRoute(builder: (_) => const Home()));
               });
             },
-            child: const Text("save"),
+            child: const Text("Guardar"),
           ),
           MaterialButton(
             onPressed: () {
@@ -51,7 +51,7 @@ class _EditenoteState extends State<Editenote> {
                     context, MaterialPageRoute(builder: (_) => const Home()));
               });
             },
-            child: const Text("delete"),
+            child: const Text("Eliminar"),
           ),
         ],
       ),
